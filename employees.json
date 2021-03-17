@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "6052085c7387da7ceb5e259f"
+  },
+  "name": "John Doe",
+  "email": "john@example.com",
+  "jobTitle": "SQL Developer",
+  "imageUrl": "https://image.shutterstock.com/image-vector/young-man-avatar-character-260nw-661669825.jpg",
+  "_class": "com.arxall.tema.phishme.model.Employee"
+},{
+  "_id": {
+    "$oid": "605208957387da7ceb5e25a0"
+  },
+  "name": "Maria",
+  "email": "maria@example.com",
+  "jobTitle": "React Developer",
+  "imageUrl": "https://www.terrainhopperusa.com/wp-content/uploads/2019/01/avatar-woman.png",
+  "_class": "com.arxall.tema.phishme.model.Employee"
+},{
+  "_id": {
+    "$oid": "6052094a7387da7ceb5e25a1"
+  },
+  "name": "Siri",
+  "email": "siri@example.com",
+  "jobTitle": "Java Developer",
+  "imageUrl": "https://www.terrainhopperusa.com/wp-content/uploads/2019/01/avatar-woman.png",
+  "_class": "com.arxall.tema.phishme.model.Employee"
+},{
+  "_id": {
+    "$oid": "6052097a7387da7ceb5e25a3"
+  },
+  "name": "Zsolt Kristó",
+  "email": "kristo.zsolti@gmail.com",
+  "jobTitle": "PLM Developer",
+  "imageUrl": "https://image.shutterstock.com/image-vector/young-man-avatar-character-260nw-661669825.jpg",
+  "_class": "com.arxall.tema.phishme.model.Employee"
+}]
