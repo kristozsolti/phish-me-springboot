@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 @Configuration
 public class CORSConfiguration {
-    @Value("${ client.angular.url }")
+    @Value("${client.angular.url}")
     private String angularUrl;
 
     /**
