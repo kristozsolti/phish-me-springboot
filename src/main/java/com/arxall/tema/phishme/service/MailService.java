@@ -22,6 +22,12 @@ public class MailService {
         this.mailSender = mailSender;
     }
 
+    /**
+     * The functionality to send the emails to the recipients.
+     * It is asynchronous because of the possibly large number of employees
+     * that would get a phishing email.
+     * @param phishingMailTemplate : a phishing email template that will be sent.
+     */
     @Async
     public void sendMail(PhishingMailTemplate phishingMailTemplate) {
         MimeMessagePreparator messagePreparator = mimeMessage -> {

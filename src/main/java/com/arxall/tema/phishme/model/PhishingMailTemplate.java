@@ -3,6 +3,10 @@ package com.arxall.tema.phishme.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * The POJO representation of a phishing email template
+ * document type from MongoDB phishing_email_templates collection.
+ */
 @Document(collection = "phishing_email_templates")
 public class PhishingMailTemplate {
     @Id

@@ -39,6 +39,14 @@ public class PhishingMailService {
         return phishingMailRepository.save(phishingMailTemplate);
     }
 
+    /**
+     * Function used to send the selected phishing email (selected in front-end) to all employees.
+     * In this function are replaced the <employee_name> and <phish_link> placeholders in the template with
+     * the name of the employee and a generated link that will be unique for every employee so we can record
+     * and increment the phishing counter if they click on it.
+     * Could be improved by splitting the replace and send responsibilities to separate functions.
+     * @param phishingMailTemplateId : the template id of the phishing email template.
+     */
     public void sendPhishingMailByTemplateId(String phishingMailTemplateId) {
         Optional<PhishingMailTemplate> phishingMailTemplateOptional = phishingMailRepository.findById(phishingMailTemplateId);
 
@@ -60,6 +68,8 @@ public class PhishingMailService {
                                 "/phishing-mail/record/" + employee.getId()));
                 mailService.sendMail(modifiedTemplate);
                 try {
+                    // had to introduce because mailtrap.io does not allow sending emails
+                    // in a short period of time.
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

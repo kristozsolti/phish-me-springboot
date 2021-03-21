@@ -23,6 +23,11 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
+    /**
+     * Get all employees from the database.
+     * @return : list of found employees.
+     * This could be improved with pagination functionality.
+     */
     public List<Employee> getAllEmployees() {
         log.info("Get all employees");
         return employeeRepository.findAll();
@@ -45,6 +50,13 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+    /**
+     * Update functionality that updates an existing employee in the database, if exists.
+     * @param employee : employee that will be updated.
+     * @return the updated employee object
+     * This could be improved with either Mapstruct library or by
+     * using DAO - DTO converters that would result on cleaner code.
+     */
     public Employee updateEmployee(Employee employee) {
         Optional < Employee > employeeOptional = employeeRepository.findById(employee.getId());
 
@@ -79,6 +91,11 @@ public class EmployeeService {
         }
     }
 
+    /**
+     * This function is used to increment the phishing count field of an employee.
+     * Used when they click on a phishing link.
+     * @param employeeId : id of the employee that clicked to the phishing link.
+     */
     public void recordPhishedEmployee(String employeeId) {
         Optional<Employee> employeeOptional = employeeRepository.findById(employeeId);
 

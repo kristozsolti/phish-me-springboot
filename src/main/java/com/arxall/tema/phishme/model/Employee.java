@@ -4,6 +4,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * The POJO representation of an employee
+ * document type from MongoDB employees collection.
+ */
 @Document(collection = "employees")
 public class Employee {
     @Id
