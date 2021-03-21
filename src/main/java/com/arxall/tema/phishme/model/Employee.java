@@ -2,6 +2,7 @@ package com.arxall.tema.phishme.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "employees")
 public class Employee {
@@ -11,15 +12,17 @@ public class Employee {
     private String email;
     private String jobTitle;
     private String imageUrl;
+    private Integer phishingCount = 0;
 
     public Employee() {}
 
-    public Employee(String id, String name, String email, String jobTitle, String imageUrl) {
+    public Employee(String id, String name, String email, String jobTitle, String imageUrl, Integer phishingCount) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.jobTitle = jobTitle;
         this.imageUrl = imageUrl;
+        this.phishingCount = phishingCount;
     }
 
     public String getId() {
@@ -60,5 +63,27 @@ public class Employee {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
+    }
+
+    public Integer getPhishingCount() {
+        return phishingCount;
+    }
+
+    public void setPhishingCount(Integer phishingCount) {
+        this.phishingCount = phishingCount;
+    }
+
+    public void incrementPhishingCount() {
+        this.phishingCount++;
     }
 }

@@ -2,7 +2,6 @@ package com.arxall.tema.phishme.controller;
 
 import com.arxall.tema.phishme.model.Employee;
 import com.arxall.tema.phishme.service.EmployeeService;
-import com.arxall.tema.phishme.service.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     @Autowired
-    public EmployeeController(EmployeeServiceImpl employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
@@ -45,8 +44,8 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public HttpStatus deleteEmployee(@PathVariable("id") String id) {
-        employeeService.deleteEmployee(id);
-        return HttpStatus.OK;
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable("id") String id) {
+        Employee deletedEmployee = employeeService.deleteEmployee(id);
+        return new ResponseEntity<>(deletedEmployee, HttpStatus.OK);
     }
 }
